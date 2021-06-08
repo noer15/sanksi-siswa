@@ -5,6 +5,7 @@ class User extends CI_Controller {
     function __construct()
 	{
 		parent::__construct();
+        $this->middleware->isLogin();
 		$this->load->model('M_user');
 	}
 	public function index()

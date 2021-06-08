@@ -68,14 +68,14 @@
                     <h3 class="card-title">Authentication <small></small></h3>
                 </div>
                 <div class="card-body">
-                    <form action="index.php" method="post">
+                    <form action="<?=site_url('auth/login')?>" method="post">
                     <div class="form-group label-floating has-success">
-                        <label class="control-label">Username / Email</label>
-                        <input type="text" name="token" placeholder="..." class="form-control" />
+                        <label class="control-label">Username</label>
+                        <input type="text" name="username" placeholder="..." class="form-control" />
                     </div>
                     <div class="form-group label-floating has-success">
                         <label class="control-label">Password</label>
-                        <input type="text" name="token" placeholder="..." class="form-control" />
+                        <input type="password" name="password" placeholder="..." class="form-control" />
                     </div>
                     <button type="submit" name="login" value="ok" class="btn btn-success">Login</button>
                     </form>

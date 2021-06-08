@@ -29,7 +29,7 @@
           <!-- <p>CT</p> -->
         </a>
         <a href="https://www.creative-tim.com" class="simple-text logo-normal">
-          Admin
+        <?=$this->session->userdata('role')=='1' ? 'ADMIN' : 'GURU BK'?>
         </a>
       </div>
       <?php $this->load->view('layouts/header')?>
@@ -114,10 +114,13 @@
                           <td><?=$data->nama?></td>
                           <td><?=$data->username?></td>
                           <td><?=$data->email?></td>
-                          <td><?=$data->role?></td>
+                          <td><?=$data->role == 1 ? 'Admin' : 'Guru BK'?></td>
                           <td>
                           <button type="button" class="btn-sm btn btn-primary" data-toggle="modal" data-target="#editUser<?=$data->id?>">
                           Edit User
+                          </button>
+                          <button type="button" class="btn-sm btn btn-primary" data-toggle="modal" data-target="#password<?=$data->id?>">
+                            Ubah Password
                           </button>
                             <a href="<?=site_url('user/delete/'.$data->id)?>" class="btn btn-sm btn-danger">Hapus</a>
                           </td>
@@ -178,6 +181,40 @@
                 </div>
                 <?php endforeach; ?>
 
+                <!-- password -->
+                <?php
+                  foreach($user as $i):
+                      $id=$i->id;
+                      $nama=$i->password;
+                  ?>
+                <!-- edit modal -->
+                <div class="modal fade" id="password<?=$id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Edit Password</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <form action="<?=site_url('auth/update_password')?>" method="post">
+                          <div class="modal-body">
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">password</label>
+                                  <input type="text" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password Baru" >
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                              <input type="hidden" name="id"  value="<?=$id?>">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <input type="submit" class="btn btn-primary" value="SUBMIT">
+                          </div>
+                      </form>
+                      </div>
+                  </div>
+                </div>
+                <?php endforeach; ?>
+                <!-- end -->
               </div>
             </div>
           </div>
