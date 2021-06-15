@@ -64,6 +64,9 @@
                           <td><?=empty($data->nilai) ? '-' : $data->nilai ?></td>
                           <td>
                             <a href="<?=site_url('alternatif/view/'.$a->id)?>" class="btn btn-sm btn-success">view</a>
+                            <?php if ($data->nilai > 200) { ?>
+                              <a href="https://wa.me/<?=$a->no_tlp?>" class="btn btn-info btn-sm">Kirim WA</a>
+                            <?php } ?>
                           </td>
                         </tr>
                       <?php endforeach; ?>

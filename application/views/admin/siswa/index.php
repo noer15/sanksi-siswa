@@ -64,6 +64,12 @@
                                   <input type="text" name="nama_siswa" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Nama">
                               </div>
                           </div>
+                          <div class="modal-body">
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">No Telepom</label>
+                                  <input type="text" name="no_tlp" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Telepon">
+                              </div>
+                          </div>
                           <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                               <input type="submit" class="btn btn-primary" value="SUBMIT">
@@ -83,6 +89,7 @@
                       <th>
                         Nama
                       </th>
+                      <th>Telepon</th>
                       <th>Action</th>
                     </thead>
                     <tbody>
@@ -90,6 +97,7 @@
                         <tr>
                           <td><?=$no++?></td>
                           <td><?=$data->nama_siswa ?></td>
+                          <td><?=$data->no_tlp ?></td>
                           <td>
                           <button type="button" class="btn-sm btn btn-primary" data-toggle="modal" data-target="#editUser<?=$data->id?>">
                           Edit
@@ -107,6 +115,7 @@
                   foreach($siswa as $i):
                       $id=$i->id;
                       $nama=$i->nama_siswa;
+                      $tlp=$i->no_tlp;
                   ?>
                 <!-- edit modal -->
                 <div class="modal fade" id="editUser<?=$id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -123,6 +132,10 @@
                               <div class="form-group">
                                   <label for="exampleInputEmail1">Nama Siswa</label>
                                   <input type="text" name="nama_siswa" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Nama" value="<?=$nama?>">
+                              </div>
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">No Tlp</label>
+                                  <input type="text" name="no_tlp" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Nama" value="<?=$tlp?>">
                               </div>
                               
                           </div>
