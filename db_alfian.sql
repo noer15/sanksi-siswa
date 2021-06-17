@@ -27,7 +27,7 @@ CREATE TABLE `alternatif` (
   `id_kriteria` int DEFAULT NULL,
   `nilai` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- ----------------------------
 -- Records of alternatif
@@ -43,9 +43,9 @@ COMMIT;
 DROP TABLE IF EXISTS `kriteria`;
 CREATE TABLE `kriteria` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nama_kriteria` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `nama_kriteria` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- ----------------------------
 -- Records of kriteria
@@ -66,7 +66,7 @@ CREATE TABLE `siswa` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nama_siswa` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- ----------------------------
 -- Records of siswa
@@ -84,12 +84,12 @@ CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nama` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT '$2y$10$tlmiJXxRHfOXMNkfXD.u9.ftYyx5i2aTH4viJJ0oDlLVNy9Nj75n6',
+  `password` varchar(255) DEFAULT '$2y$10$tlmiJXxRHfOXMNkfXD.u9.ftYyx5i2aTH4viJJ0oDlLVNy9Nj75n6',
   `role` int DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `status` int DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- ----------------------------
 -- Records of user

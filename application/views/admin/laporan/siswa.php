@@ -30,36 +30,29 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <a href="<?=site_url('alternatif/add')?>" class="btn btn-sm btn-info">Tambah Alternatif</a>
+                <a href="<?=site_url('laporan/cetak_siswa')?>" class="btn btn-primary" target="_blank">
+                Cetak
+                </a>
+                <!-- modal -->
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table">
+                <table class="table">
                     <thead class=" text-primary">
                       <th>No</th>
-                      <th>Nama Siswa</th>
-                      <th>Nilai</th>
-                      <th>Action</th>
+                      <th>Nama</th>
                     </thead>
                     <tbody>
-                      <?php $no=1;  foreach($this->db->get('siswa')->result() as $a) : ?>
+                      <?php $no=1; foreach($this->db->get('siswa')->result() as $data) : ?>
                         <tr>
                           <td><?=$no++?></td>
-                          <td><?=$a->nama_siswa ?></td>
-                          <?php $data = $this->db->query("SELECT SUM(nilai) AS nilai FROM alternatif WHERE id_siswa = '$a->id'")->row()?>
-                          <td><?=empty($data->nilai) ? '-' : $data->nilai ?></td>
-                          <td>
-                            <a href="<?=site_url('alternatif/view/'.$a->id)?>" class="btn btn-sm btn-success">view</a>
-                            <?php if ($data->nilai > 200) { ?>
-                              <a href="https://wa.me/<?=$a->no_tlp?>" class="btn btn-info btn-sm">Kirim WA</a>
-                            <?php } ?>
-                          </td>
+                          <td><?=$data->nama_siswa ?></td>
                         </tr>
                       <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
-               
+
               </div>
             </div>
           </div>

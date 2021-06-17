@@ -59,6 +59,7 @@
                <?php
                   foreach($alternatif as $i):
                       $id=$i->id;
+                      $id_siswa=$i->id_siswa;
                       $id_kriteria=$i->id_kriteria;
                       $nilai= $i->nilai;
                       $kriteria=$i->nama_kriteria;
@@ -77,7 +78,6 @@
                           <div class="modal-body">
                               <div class="form-group">
                                   <label for="exampleInputEmail1">Nama Kriteria</label>
-                                  <input type="hidden" name="id_kriteria" class="form-control" value="<?=$id_kriteria?>">
                                   <input type="text" readonly class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Nama" value="<?=$kriteria?>">
                               </div>
                               <div class="form-group">

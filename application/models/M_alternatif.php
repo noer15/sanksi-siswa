@@ -21,10 +21,7 @@ class M_alternatif extends CI_Model
 
     public function getId($id)
     {
-        return $this->db
-        ->join('siswa','siswa.id = alternatif.id_siswa','left')
-        ->join('kriteria','kriteria.id = alternatif.id_kriteria','left')
-        ->get_where('alternatif',['id_siswa'=>$id]);
+        return $this->db->query("SELECT siswa.nama_siswa,  kriteria.nama_kriteria,  alternatif.* FROM alternatif INNER JOIN siswa ON alternatif.id_siswa = siswa.id INNER JOIN kriteria ON alternatif.id_kriteria = kriteria.id WHERE id_siswa = '$id'");
     }
    
 }

@@ -29,32 +29,32 @@
         <div class="row">
           <div class="col-md-12">
             <div class="card">
-              <div class="card-header">
-                <a href="<?=site_url('alternatif/add')?>" class="btn btn-sm btn-info">Tambah Alternatif</a>
+            <div class="card-header">
+                <a href="<?=site_url('laporan/cetak_alternatif')?>" class="btn btn-sm btn-info" target="_blank">Cetak</a>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
-                    <thead class=" text-primary">
+                    <thead>
                       <th>No</th>
                       <th>Nama Siswa</th>
                       <th>Nilai</th>
-                      <th>Action</th>
                     </thead>
                     <tbody>
                       <?php $no=1;  foreach($this->db->get('siswa')->result() as $a) : ?>
-                        <tr>
+                        <tr style="background-color: #8080805e">
                           <td><?=$no++?></td>
                           <td><?=$a->nama_siswa ?></td>
                           <?php $data = $this->db->query("SELECT SUM(nilai) AS nilai FROM alternatif WHERE id_siswa = '$a->id'")->row()?>
-                          <td><?=empty($data->nilai) ? '-' : $data->nilai ?></td>
-                          <td>
-                            <a href="<?=site_url('alternatif/view/'.$a->id)?>" class="btn btn-sm btn-success">view</a>
-                            <?php if ($data->nilai > 200) { ?>
-                              <a href="https://wa.me/<?=$a->no_tlp?>" class="btn btn-info btn-sm">Kirim WA</a>
-                            <?php } ?>
-                          </td>
+                          <td><strong>Total : <?=empty($data->nilai) ? '-' : $data->nilai ?></strong></td>
                         </tr>
+                        <?php foreach ($this->db->query("SELECT siswa.nama_siswa,  kriteria.nama_kriteria,  alternatif.* FROM alternatif INNER JOIN siswa ON alternatif.id_siswa = siswa.id INNER JOIN kriteria ON alternatif.id_kriteria = kriteria.id WHERE id_siswa = '$a->id'")->result() as $data) { ?>
+                            <tr>
+                                <td colspan="1"></td>
+                                <td><?=$data->nama_kriteria ?></td>
+                                <td><?=$data->nilai ?></td>
+                            </tr>
+                          <?php } ?>
                       <?php endforeach; ?>
                     </tbody>
                   </table>

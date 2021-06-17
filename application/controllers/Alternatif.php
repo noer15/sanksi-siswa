@@ -32,7 +32,8 @@ class Alternatif extends CI_Controller {
 	public function update(){
 		$this->isPost();
         $this->M_alternatif->update($_POST);
-		redirect(base_url().'alternatif');
+		redirect('alternatif');
+		// print_r($_POST);
 	}
 
 
