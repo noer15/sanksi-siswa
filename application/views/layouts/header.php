@@ -35,6 +35,12 @@
         <p>User</p>
       </a>
     </li>
+    <li>
+      <a href="<?=site_url('sanksi')?>">
+        <i class="nc-icon nc-single-02"></i>
+        <p>Sanksi</p>
+      </a>
+    </li>
     <li class="nav-item dropdown d-flex">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="nc-icon nc-single-02"></i>
