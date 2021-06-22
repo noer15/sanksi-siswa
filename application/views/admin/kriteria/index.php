@@ -30,9 +30,9 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Tambah Kriteria
-                </button>
+                </button> -->
                 <!-- modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -81,7 +81,7 @@
                           Edit
                           </button>
                          
-                            <a href="<?=site_url('kriteria/delete/'.$data->id)?>" class="btn btn-sm btn-danger">Hapus</a>
+                            <!-- <a href="<?=site_url('kriteria/delete/'.$data->id)?>" class="btn btn-sm btn-danger">Hapus</a> -->
                           </td>
                         </tr>
                       <?php endforeach; ?>
