@@ -54,6 +54,11 @@ class Laporan extends CI_Controller {
 	{
 		$this->load->view('admin/laporan/cetak_siswa');
 	}
+
+	public function cetak()
+	{
+		$this->load->view('admin/laporan/cetak_invoice');
+	}
 	
 
     
